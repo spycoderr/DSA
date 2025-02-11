@@ -59,6 +59,39 @@ void insertAtTail (Node* &tail, Node* &head, int value){
 }
 
 
+    void insertAtValue(Node* &head, Node* &tail, int target, int value){
+
+      Node* temp = head;
+
+      while(temp != NULL && temp -> data != target){
+        temp = temp -> next;
+      }
+
+      if(temp != NULL){
+
+        Node* newNode = new Node(value);
+        newNode -> next  = temp -> next;
+        temp -> next = newNode; 
+
+      
+
+      if (temp == tail){
+
+          tail = newNode;
+
+      }
+
+      }
+
+      else {
+        cout << "Target value not found in the list." << endl;
+    }
+
+    }
+
+
+
+
   void print(Node* &head){
 
       Node* temp = head;
@@ -84,6 +117,8 @@ int main() {
   insertAtHead(head, tail, 40);
   insertAtTail(tail, head, 50);
 
+
+  insertAtValue(head, tail, 40 , 70);
   print(head);
 
   
